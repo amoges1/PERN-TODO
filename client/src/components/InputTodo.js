@@ -2,7 +2,7 @@ import React, { Fragment, useState } from "react";
 
 const InputTodo = () => {
 
-    const [description, setDescription] = useState("Something")
+    const [description, setDescription] = useState("")
 
     const onSubmitForm = async (e) => {
         e.preventDefault()
@@ -13,8 +13,9 @@ const InputTodo = () => {
                 headers: {"Content-Type":"application/json"},
                 body: JSON.stringify(body)
             })
-
             console.log(response);
+            
+            window.location = "/"; //refreshes page
             
         } catch (err) {
             console.error(err.message);
